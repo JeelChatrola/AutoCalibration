@@ -20,12 +20,10 @@ A Flexible New Technique for Camera Calibration - [Zhang's Paper link](https://w
 2. Solving for approximate intrinsic and extrinsic parameters (assuming no distortion)
 3. Non-linear Geometric Error Minimization using Least Squares Optimization
 
-
 To run the code please clone the repo and execute:
 
 ```
 python3 Camera_Calib_Zhang.py
-
 ```
 one should place the images to be used for calibration in **Calibration_Imgs/** folder.
 This will save results in the **results/** folder along with intermediate images and final camera parameters. 
