@@ -233,9 +233,7 @@ class CameraCalibration:
         return np.array(error), np.array(reprojected_corners)
 
     def optimization_function(self, params, R, T, image_points, world_points):
-        error, _ = self.loss_function(
-            params, R, T, image_points, world_points
-        )
+        error, _ = self.loss_function(params, R, T, image_points, world_points)
         return error.flatten()
     
     def save_original_corners(self, images, corners, path):
@@ -350,8 +348,8 @@ if __name__ == '__main__':
     reprojected_corners_mod = np.array(reprojected_corners_mod)
     
     print('Saving Results...')
-    calib.save_original_corners(images, reprojected_corners_mod, "results/reprojected/")
-    calib.save_corners(images, calib.image_points, reprojected_corners_mod, "results/comparison/")
+    calib.save_original_corners(calib.read_images(), reprojected_corners_mod, "results/reprojected/")
+    calib.save_corners(calib.read_images(), calib.image_points, reprojected_corners_mod, "results/comparison/")
     print("")
 
     print("Calibration Complete!")
